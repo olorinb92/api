@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.List;
@@ -26,7 +27,7 @@ public class PlayerController {
     }
 
     @PostMapping(consumes = "application/json", produces = "application/json")
-    public ResponseEntity<?> createPlayer(@RequestBody PlayerModel player) {
+    public ResponseEntity<?> createPlayer(@Valid @RequestBody PlayerModel player) {
         PlayerModel createdPlayer = null;
         try {
             player.setCreatedAt(LocalDateTime.now().atZone(ZoneOffset.UTC).toLocalDateTime());
