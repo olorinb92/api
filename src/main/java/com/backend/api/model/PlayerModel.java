@@ -1,4 +1,4 @@
-package com.backend.api;
+package com.backend.api.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -8,12 +8,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
 @Data
-@Document
-public class Player {
+@Document("Player")
+public class PlayerModel {
     @Id
     private String id;
     @Indexed(unique = true)
     private String name;
-    private Integer score;
-    private LocalDateTime created;
+    private int score;
+    private LocalDateTime createdAt;
 }
